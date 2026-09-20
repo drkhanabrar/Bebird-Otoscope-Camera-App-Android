@@ -1,0 +1,25 @@
+# ---------- Android / Gradle ----------
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/captures/
+*.iml
+*.keystore
+!debug.keystore
+
+# ---------- Python / PyInstaller ----------
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.spec
+.venv/
+venv/
+
+# ---------- Editors / OS ----------
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

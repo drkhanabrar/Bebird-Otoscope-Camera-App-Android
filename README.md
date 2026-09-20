@@ -8,7 +8,7 @@ Support: +91 9370111449 · www.carehospital.in
 
 | | |
 |---|---|
-| **Windows app** | Python + Tkinter + OpenCV, builds to a single `.exe` |
+| **Windows app** | Python + Tkinter + Pillow, builds to a single 18 MB `.exe` |
 | **Android app** | Kotlin, builds to an installable `.apk` |
 | **Camera** | Bebird-type Wi-Fi ENT scope, UDP/JPEG, default `192.168.10.123:8030` |
 
@@ -43,8 +43,9 @@ care-ent-scope-camera/
 
 ## Version 3.0.0 — what changed
 
-Four problems reported in version 2.0.0 are fixed, and the whole interface was
-rebuilt to look and feel more professional.
+The four problems reported in version 2.0.0 are fixed, the whole interface was
+rebuilt to look and feel more professional, and the application is now a
+quarter of its previous size.
 
 ### 1. Buttons no longer flicker when the cursor is over them
 
@@ -81,11 +82,46 @@ palette and Segoe UI typography throughout. The Control Center panel has a
 **scrollbar on the side and a horizontal scrollbar**, plus mouse-wheel support
 (Shift + wheel scrolls sideways), so nothing in it is ever clipped.
 
+The command bar along the bottom is also a single scrollable row: on a smaller
+screen or a restored (non-maximised) window its right-hand end used to be cut
+off, so it now scrolls sideways and shows a scrollbar only when the buttons
+actually overflow. All scrollbars are drawn by the application rather than by
+Windows, so they match the dark theme instead of appearing as pale grey bars.
+
+### 5. Much smaller and quicker to start
+
+Version 2 bundled OpenCV and NumPy, which between them accounted for over
+160 MB of the installed footprint and made the program a 66 MB download.
+Everything the app actually used them for — JPEG decoding, resizing, the image
+adjustments, the overlays and video recording — is now done with Pillow and a
+small built-in MJPEG/AVI writer. The result is **18 MB instead of 66 MB**, with
+a noticeably faster cold start and no behaviour lost.
+
+One deliberate trade-off: recordings are now **MJPEG `.avi`** rather than
+H.264 `.mp4`. MJPEG plays in Windows Media Player, VLC, PowerPoint and every
+common editor, and it survives dropped frames better, but the files are larger
+— budget roughly 9 MB per minute at 640×480. Snapshots are unchanged
+high-quality JPEG.
+
 ---
 
 ## Installing the Windows app
 
-### The easy way — let GitHub build it
+### Just run the EXE
+
+`CARE_ENT_Scope_Camera.exe` is a single self-contained file — about 18 MB, with
+Python and everything else already inside it. Nothing to install.
+
+1. Copy it anywhere on the PC (Desktop is fine).
+2. Double-click it.
+3. Windows SmartScreen may show *"Windows protected your PC"* the first time,
+   because the file is not code-signed. Click **More info → Run anyway**. This
+   is expected for any unsigned in-house application; to remove the warning
+   permanently you would need a code-signing certificate.
+
+Built with Python 3.12.11 and Pillow as a 64-bit Windows binary.
+
+### The easy way to rebuild it — let GitHub build it
 
 After you push this repository to GitHub (steps further down), open the
 **Actions** tab → **Build Windows EXE** → **Run workflow**. When it finishes,
@@ -274,7 +310,7 @@ the next chunk 1 arrives, the previous frame is complete and is decoded.
 | Grid, crosshair, timestamp overlays | Yes | Yes |
 | Freeze frame | Yes | Yes |
 | Snapshots | JPEG to Documents | JPEG to the phone gallery |
-| Recording | MP4, AVI fallback | H.264 MP4 |
+| Recording | MJPEG AVI | H.264 MP4 |
 | Video-only full screen | Separate window | Immersive, chrome hidden |
 
 ---
