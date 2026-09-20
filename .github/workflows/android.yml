@@ -1,0 +1,71 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'android/**'
+      - '.github/workflows/android.yml'
+  pull_request:
+    paths:
+      - 'android/**'
+  workflow_dispatch:        # lets you press "Run workflow" by hand
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+    name: Assemble APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+        working-directory: android
+
+      - name: Build debug APK
+        run: ./gradlew --no-daemon assembleDebug
+        working-directory: android
+
+      - name: Build release APK (unsigned)
+        run: ./gradlew --no-daemon assembleRelease
+        working-directory: android
+        continue-on-error: true
+
+      - name: Rename APKs
+        run: |
+          mkdir -p out
+          cp android/app/build/outputs/apk/debug/app-debug.apk \
+             out/CARE-ENT-Scope-Camera-debug.apk
+          if [ -f android/app/build/outputs/apk/release/app-release-unsigned.apk ]; then
+            cp android/app/build/outputs/apk/release/app-release-unsigned.apk \
+               out/CARE-ENT-Scope-Camera-release-unsigned.apk
+          fi
+          ls -la out
+
+      # This is the file you download and install on the phone.
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: CARE-ENT-Scope-Camera-APK
+          path: out/*.apk
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Attach APK to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: out/*.apk
