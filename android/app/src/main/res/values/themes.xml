@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.ScopeCamera" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/teal</item>
+        <item name="colorOnPrimary">@color/on_teal</item>
+        <item name="colorPrimaryContainer">@color/teal_soft</item>
+        <item name="colorOnPrimaryContainer">@color/teal</item>
+        <item name="colorSecondary">@color/teal</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/surface2</item>
+        <item name="colorOnSurfaceVariant">@color/text_muted</item>
+        <item name="colorOutline">@color/line</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.ScopeCamera.BottomSheet</item>
+    </style>
+
+    <style name="Theme.ScopeCamera.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ScopeBottomSheet</item>
+    </style>
+
+    <style name="ScopeBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/surface</item>
+        <item name="shapeAppearanceOverlay">@style/ScopeSheetShape</item>
+    </style>
+
+    <style name="ScopeSheetShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">22dp</item>
+        <item name="cornerSizeTopRight">22dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- Rounded pill buttons, matching the Windows workstation -->
+    <style name="ScopeButton" parent="Widget.Material3.Button">
+        <item name="cornerRadius">22dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="backgroundTint">@color/teal</item>
+        <item name="android:textColor">@color/on_teal</item>
+    </style>
+
+    <style name="ScopeButton.Secondary" parent="Widget.Material3.Button">
+        <item name="cornerRadius">22dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="backgroundTint">@color/surface2</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="strokeColor">@color/line</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="ScopeButton.Danger" parent="ScopeButton">
+        <item name="backgroundTint">@color/red</item>
+        <item name="android:textColor">#1A0508</item>
+    </style>
+
+    <style name="ScopeButton.Ghost" parent="Widget.Material3.Button.TextButton">
+        <item name="cornerRadius">22dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_muted</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SectionSub">
+        <item name="android:textColor">@color/text_dim</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="SliderLabel">
+        <item name="android:textColor">#B5CDD2</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+</resources>

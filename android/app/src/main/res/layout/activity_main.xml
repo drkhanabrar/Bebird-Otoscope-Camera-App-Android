@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_video">
+
+    <!-- ===================== live video ===================== -->
+    <com.carehospital.entscope.ScopeView
+        android:id="@+id/scopeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ===================== top chrome ===================== -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_top_scrim"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="22dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_full_name"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/metaText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tagline"
+                android:textColor="#6FA8B0"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/statusBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/status_offline"
+            android:textColor="@color/text_muted"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAbout"
+            style="@style/ScopeButton.Ghost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/about" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFullscreen"
+            style="@style/ScopeButton.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/full_screen" />
+    </LinearLayout>
+
+    <!-- ===================== stats line ===================== -->
+    <TextView
+        android:id="@+id/statsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/text_muted"
+        android:textSize="11sp"
+        android:fontFamily="monospace"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ===================== recording badge ===================== -->
+    <TextView
+        android:id="@+id/recBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- =====================================================
+         Welcome / empty state.
+         Visible only while there is no picture. The first decoded
+         frame hides it, disconnecting brings it back.
+         ===================================================== -->
+    <LinearLayout
+        android:id="@+id/connectOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/overlayTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/camera_ready"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/overlaySub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/camera_ready_sub"
+            android:textColor="@color/text_muted"
+            android:textSize="13sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConnectBig"
+            style="@style/ScopeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:minHeight="52dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="@string/connect_camera"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- ===================== command deck ===================== -->
+    <HorizontalScrollView
+        android:id="@+id/deck"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_scrim"
+        android:paddingTop="20dp"
+        android:paddingBottom="12dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSnapshot"
+                style="@style/ScopeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/snapshot" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRecord"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/start_recording" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFreeze"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/freeze" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFit"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/fit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnZoomOut"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/zoom_out" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnZoomIn"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/zoom_in" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMirror"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/mirror" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRotate"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/rotate" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnControls"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/controls" />
+        </LinearLayout>
+    </HorizontalScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

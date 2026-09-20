@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#081216</color>
+    <color name="surface">#0E1F26</color>
+    <color name="surface2">#142C35</color>
+    <color name="surface3">#1B3C47</color>
+    <color name="line">#23464F</color>
+    <color name="text_primary">#EDF8FA</color>
+    <color name="text_muted">#89A9B1</color>
+    <color name="text_dim">#5E7E85</color>
+    <color name="teal">#2FC7B7</color>
+    <color name="teal_dark">#17837C</color>
+    <color name="teal_soft">#0D3136</color>
+    <color name="red">#E2596A</color>
+    <color name="amber">#E3B457</color>
+    <color name="green">#4FD3A4</color>
+    <color name="black_video">#03080A</color>
+    <color name="on_teal">#04191B</color>
+</resources>

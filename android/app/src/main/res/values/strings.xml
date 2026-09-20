@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CARE ENT Scope</string>
+    <string name="app_full_name">CARE ENT Scope Camera</string>
+    <string name="tagline">PROFESSIONAL CAMERA WORKSTATION</string>
+
+    <string name="about">About</string>
+    <string name="full_screen">Full Screen</string>
+    <string name="exit_full_screen">Exit Full Screen</string>
+    <string name="controls">Controls</string>
+    <string name="close">Close</string>
+
+    <string name="connect_camera">Connect Camera</string>
+    <string name="connecting">Connecting…</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+
+    <string name="camera_ready">Camera ready</string>
+    <string name="camera_ready_sub">Join the scope Wi‑Fi network, then start live viewing</string>
+    <string name="waiting_for_camera">Waiting for camera</string>
+    <string name="waiting_sub">Make sure this phone is connected to the scope Wi‑Fi network</string>
+
+    <string name="snapshot">Snapshot</string>
+    <string name="start_recording">Record</string>
+    <string name="stop_recording">Stop</string>
+    <string name="freeze">Freeze</string>
+    <string name="resume">Resume</string>
+    <string name="fit">Fit</string>
+    <string name="zoom_in">Zoom +</string>
+    <string name="zoom_out">Zoom −</string>
+    <string name="mirror">Mirror</string>
+    <string name="rotate">Rotate</string>
+
+    <string name="status_offline">OFFLINE</string>
+    <string name="status_connecting">CONNECTING</string>
+    <string name="status_live">LIVE</string>
+
+    <string name="control_center">CONTROL CENTER</string>
+    <string name="control_center_sub">Camera connection, image and overlays</string>
+    <string name="section_connection">Connection</string>
+    <string name="section_connection_sub">Wi‑Fi scope endpoint</string>
+    <string name="camera_ip">Camera IP</string>
+    <string name="udp_port">UDP Port</string>
+    <string name="auto_connect">Auto‑connect on launch</string>
+    <string name="section_image">Image</string>
+    <string name="section_image_sub">Software processing – camera hardware exposure is unchanged</string>
+    <string name="brightness">Brightness</string>
+    <string name="contrast">Contrast</string>
+    <string name="saturation">Saturation</string>
+    <string name="section_orientation">Orientation</string>
+    <string name="mirror_horizontally">Mirror horizontally</string>
+    <string name="flip_vertically">Flip vertically</string>
+    <string name="rotate_90">Rotate 90°</string>
+    <string name="section_overlays">Overlays</string>
+    <string name="section_overlays_sub">Visual aids are included in the display and in captures</string>
+    <string name="composition_grid">Composition grid</string>
+    <string name="crosshair">Crosshair</string>
+    <string name="timestamp">Timestamp</string>
+    <string name="reset_all">Reset All Controls</string>
+
+    <string name="no_frame">No camera frame is available yet.</string>
+    <string name="snapshot_saved">Snapshot saved: %1$s</string>
+    <string name="snapshot_failed">Could not save the snapshot.</string>
+    <string name="recording_started">Recording started</string>
+    <string name="recording_saved">Recording saved: %1$s</string>
+    <string name="recording_failed">Could not start recording on this device.</string>
+    <string name="invalid_endpoint">Please enter a valid IPv4 address and UDP port.</string>
+
+    <string name="visit_website">Visit Website</string>
+    <string name="copy_support">Copy Support Number</string>
+    <string name="support_copied">Support number copied</string>
+</resources>

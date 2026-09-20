@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_full_name"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/versionLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="#78BBC1"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Developed by Dr. Abrar Khan  -  Care Hospital, Chikhli"
+            android:textColor="@color/text_muted"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Purpose and capabilities"
+                style="@style/SectionTitle" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="#C8DDE1"
+                android:textSize="13sp"
+                android:text="CARE ENT Scope Camera is a companion viewer for the Wi-Fi ENT endoscope camera used in the CARE ENT Scope workflow. It receives the camera's local-network video stream and provides a focused workspace for live viewing, image capture and local video recording.\n\nKey capabilities\n  -  Live scope video and connection status\n  -  High-quality JPEG snapshots and local video recording\n  -  Pinch zoom, pan, fit-to-view, mirror and rotation\n  -  Brightness, contrast and saturation\n  -  Optional grid, crosshair and timestamp overlays\n  -  Freeze frame and video-only full-screen viewing" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Privacy and clinical use"
+                style="@style/SectionTitle" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="#C8DDE1"
+                android:textSize="13sp"
+                android:text="Patient media stays on this device. Images and videos are saved to the phone's own media library under CARE ENT Scope. The viewer needs no cloud account for live display.\n\nClinical use notice\nThis application is a camera viewing and documentation aid. It does not by itself establish a diagnosis, issue a prescription or replace professional clinical judgement.\n\nUsers are responsible for appropriate patient consent, confidentiality and compliance with applicable privacy requirements when patient media is captured or stored." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Technical"
+                style="@style/SectionTitle" />
+
+            <TextView
+                android:id="@+id/technicalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="#C8DDE1"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Copyright"
+                style="@style/SectionTitle" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="#C8DDE1"
+                android:textSize="13sp"
+                android:text="© 2026 Care Hospital. All rights reserved.\n\nCARE ENT Scope Camera is proprietary software developed by Dr. Abrar Khan at Care Hospital, Chikhli. The application interface, workflow and software implementation are part of the CARE ENT Scope software environment." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWebsite"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/visit_website" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCopySupport"
+                style="@style/ScopeButton.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/copy_support" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCloseAbout"
+            style="@style/ScopeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/close" />
+    </LinearLayout>
+</ScrollView>
